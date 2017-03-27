@@ -26,34 +26,23 @@ Administrators can choose to delete an agent which is no longer required. The ag
 
 Since the agent list can become very long, it is useful to be able to filter it by various criteria. The **Filter** option provides this functionality.
 
--   Format: tag:value
--   Supported tags: ip, resource, os, name, status, environment
--   Supported values: Free form text. After you specify a tag, enter a value. Go only displays agents containing the entered value.
+-   Format: value
+-   Tags searched: ip, resource, os, name, status, environment
+-   Supported values: Free form text.
 -   The sort function will work with filtered lists.
--   Entering a tag:value combination that does not match any agents will result in an empty result set being displayed.
+-   Entering a value that does not match any agents will result in an empty result set being displayed.
 
 Examples:
 
--   If you want to see only missing agents, enter "status:missing".
--   If you want to see only agents with resource names containing "java", enter "resource:java".
+-   If you want to see only missing agents, enter "missing".
+-   If you want to see only agents with resource or names containing "java", enter "java".
 
-### Autocompletion
-
-Go support autocompletion of searches. After you specify a tag, Go suggests possible values for the tag, based on the exsting values entered. You can choose an appropriate value from the autocompletion list and then search.
-
-![](../resources/images/agents_autocomplete.png)
-
-A maximum of 10 results is displayed for autocomplete, irrespetive of the number of actual matches. For best results, ensure sufficient text is entered to narrow down the number of matches
 
 ### Exact search
 
-Even with autocomplete, there are some limitations to the search criteria.
+Search is implicet it will only match somthing that matches an entire field, matching more than one field doesnt appear possible.
 
-For example **resource:windows** matches both "windows" and "windows2k3", though you may have wanted an exact match on "windows". This is because, the current filter is a wildcard search rathern than a token search.
-
-**Exact search** addresses this problem. The way to do exact search is to use quotes ("") to specify the values. e.g. **resource:"windows"** will filter and return only those agents whose names are "windows" and nothing else.
-
-You cannot combine autocomplete and exact search. Once you specify the values in quotes, autocomplete will be turned off.
+For example windows matches both "windows" and "windows 10", though you may have wanted an exact match on "windows". This is because, the filter is a wildcard search.
 
 #### Also see...
 
